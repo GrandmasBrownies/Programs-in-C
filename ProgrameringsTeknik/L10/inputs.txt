@@ -1,0 +1,14 @@
+3
+Alice 31000
+Bob   25000
+Eve   65000
+
+2
+Joel 24000
+Isak 32000
+
+4
+person1 52000
+person2 14000
+person3 111000
+person4 115000

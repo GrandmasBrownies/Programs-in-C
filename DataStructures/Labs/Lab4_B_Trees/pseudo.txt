@@ -1,0 +1,15 @@
+Search:
+ptr = root
+if (!ptr) {
+    Could not find
+}
+for (int i = 0; i < key_amount; i++)
+{
+    if (val < node_val[i]) {
+        search subtree to the left of node_val // recursion
+    }
+    else if (val == node_val) {
+        Found val
+    }
+}
+search rightmost subtree of node // recursion
