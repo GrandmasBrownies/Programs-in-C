@@ -1,5 +1,4 @@
 // 2026 Joel Tann
-// update 3
 
 #include <stdio.h>
 #include <stdlib.h>
