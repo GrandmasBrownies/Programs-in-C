@@ -7,7 +7,7 @@
 
 int main()
 {
-    int choice_ = 0;
+/*     int choice_ = 0;
 
     printf("Choice a text fromat to try your pattern on:\n");
     printf("(1) Your word as the first word in the text\n");
@@ -15,11 +15,14 @@ int main()
     printf("(3)\n");
     printf("(4)\n");
     printf("(5)\n");
-    printf("(6)\n");
+    printf("(6)\n"); */
 
-    char pattern[MAX_PATTERN_LENGTH];
+    char text[101]; // make input sizes for text
 
+    
     printf("Type pattern to search for:\n");
+    
+    char pattern[MAX_PATTERN_LENGTH];
     scanf("%s", pattern);
 
     int pattern_length = strlen(pattern);
@@ -30,7 +33,7 @@ int main()
     create_bad_shift_tabel(bad_st, pattern_length);
     create_good_shift_tabel(good_st, pattern_length);
 
-    boyer_moore(good_st, bad_st);
+    boyer_moore(text, pattern, good_st, bad_st); // add op counter
 
     return 0;
 }
