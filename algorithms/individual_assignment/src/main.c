@@ -1,6 +1,7 @@
 // 2026 Joel Tann
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define MAX_PATTERN_LENGTH 101
@@ -17,23 +18,34 @@ int main()
     printf("(5)\n");
     printf("(6)\n"); */
 
-    char text[101]; // make input sizes for text
+    char text[101] = {"Hello, my name is Jeff"}; // make input sizes for text
 
     
     printf("Type pattern to search for:\n");
     
-    char pattern[MAX_PATTERN_LENGTH];
-    scanf("%s", pattern);
+    char pat[MAX_PATTERN_LENGTH];
+    scanf("%s", pat); // pattern to search for in text
 
-    int pattern_length = strlen(pattern);
+    int patlen = strlen(pat);
 
-    int bad_st[127] = {pattern_length};
-    int good_st[127] = {pattern_length};
 
-    create_bad_shift_tabel(bad_st, pattern_length);
-    create_good_shift_tabel(good_st, pattern_length);
+    int *good_st = malloc(patlen * sizeof(*good_st)); // Good shift tabel
+    int bad_st[127] = {patlen}; // Bad shift tabel
 
-    boyer_moore(text, pattern, good_st, bad_st); // add op counter
+    create_bad_shift_tabel(bad_st, pat);
+    create_good_shift_tabel(good_st, pat);
+
+
+    int position = boyer_moore(text, pat, good_st, bad_st); // add op counter
+
+    if (position >= 0) {
+        printf("Found match at text[%d]\n", position);
+    }
+    else {
+        printf("Could not find pattern in text\n");
+    }
+
+    free(good_st);
 
     return 0;
 }
