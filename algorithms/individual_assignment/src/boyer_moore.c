@@ -32,6 +32,8 @@ int boyer_moore(char *text, char *pat, int *good_st, int *bad_st) // add op coun
     return -1;
 }
 
+int brute_force(char *text, char *pat);
+
 int max(int good, int bad)
 {
     if (good > bad) {
