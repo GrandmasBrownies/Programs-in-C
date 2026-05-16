@@ -26,17 +26,7 @@ int main()
     char pat[MAX_PATTERN_LENGTH];
     scanf("%s", pat); // pattern to search for in text
 
-    int patlen = strlen(pat);
-
-
-    int *good_st = malloc(patlen * sizeof(*good_st)); // Good shift tabel
-    int bad_st[127] = {patlen}; // Bad shift tabel
-
-    create_bad_shift_tabel(bad_st, pat);
-    create_good_shift_tabel(good_st, pat);
-
-
-    int position = boyer_moore(text, pat, good_st, bad_st); // add op counter
+    int position = boyer_moore(text, pat); // add op counter
 
     if (position >= 0) {
         printf("Found match at text[%d]\n", position);
@@ -44,8 +34,6 @@ int main()
     else {
         printf("Could not find pattern in text\n");
     }
-
-    free(good_st);
 
     return 0;
 }
