@@ -7,7 +7,7 @@ int boyer_moore(char *text, char *pat) // add op counter
 
     int *good_st = malloc(patlen * sizeof(*good_st));
     *good_st = patlen;
-    
+
     int bad_st[127];
 
     create_bad_shift_tabel(bad_st, pat, patlen);
@@ -53,7 +53,22 @@ void create_good_shift_tabel(int *good_st, char *pat, int patlen)
     
     for (int j = 0; j < patlen-1; j++)
     {
-        good_st[patlen - 1 - suff[j]] = patlen - 1 - j;
+        if (suff[j] > 0) {
+            good_st[patlen - 1 - suff[j]] = patlen - 1 - j;
+        }
+        else {
+            for (int k = patlen-1; k >= j; k--)
+            {
+                int l = j-1;
+                if (pat[l] == pat[k]) {
+                    while (l >= 0) {
+                        l--;
+                        k--;
+                        if ()
+                    }
+                }
+            }
+        }
     }
 }
 

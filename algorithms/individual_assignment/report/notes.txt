@@ -1,5 +1,7 @@
-
+Title: The complete implementation of Boyer-Moore
   
 DOUBLE CHECK!!: [1]“8th International Conference on Engineering of Complex Computer Systems (ICECCS 2002,” Place of publication not identified: IEEE Computer Society Press, 2002.
 
 changed from goto to while loop for better programing practice
+
+bad tabel: If char don't exist in pattern, shift patlen. Else shift to where char reoccurs in pattern???
