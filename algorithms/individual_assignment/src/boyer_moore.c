@@ -1,12 +1,19 @@
 // 2026 Joel Tann
 
-int boyer_moore(char *text, char *pat) // add op counter
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/* int boyer_moore(char *text, char *pat) // add op counter
 {
     int textlen = strlen(text);
     int patlen = strlen(pat);
 
     int *good_st = malloc(patlen * sizeof(*good_st));
-    *good_st = patlen;
+    for (int i = 0; i < patlen; i++)
+    {
+        good_st[i] = patlen;
+    }
 
     int bad_st[127];
 
@@ -39,15 +46,44 @@ int boyer_moore(char *text, char *pat) // add op counter
     free(good_st);
 
     return -1;
-}
+} */
 
 int brute_force(char *text, char *pat);
 
 void create_bad_shift_tabel(int *bad_st, char *pat, int patlen);
 
+void suffix(char *pat, int *suff, int patlen)
+{
+    suff[patlen-1] = patlen;
+
+    for (int i = patlen-2; i >= 0; i--)
+    {
+        int k = patlen-1;
+        int j = i;
+        int len = 0;
+
+        while (len <= i && pat[j] == pat[k])
+        {
+            j--;
+            k--;
+            len++;
+        }
+        suff[i] = len;
+    }
+}
+
+int max(int good, int bad)
+{
+    if (good > bad) {
+        return good;
+    }
+
+    return bad;
+}
+
 void create_good_shift_tabel(int *good_st, char *pat, int patlen)
 {
-    int suff[patlen];
+    int *suff = malloc(patlen * sizeof(*suff));
 
     suffix(pat, suff, patlen);
     
@@ -66,28 +102,32 @@ void create_good_shift_tabel(int *good_st, char *pat, int patlen)
     {
         good_st[patlen - 1 - suff[i]] = patlen - 1 - i;
     }
-}
-
-
-
-void suffix(char *pat, int *suff, int patlen)
-{
-    suff[patlen-1] = patlen;
-
-    for (int i = patlen-2; i >= 0; i--)
+    printf("suff: ");
+    for (int i = 0; i < patlen; i++)
     {
-        if (pat[i] != pat[patlen-1]) {
-            suff[i] = 0;
-        }
-
+        printf("%d ", suff[i]);
     }
+    printf("\n");
+
+    free (suff);
 }
 
-int max(int good, int bad)
+
+int main()
 {
-    if (good > bad) {
-        return good;
+    char pat[8] = "abcdabc";
+    int patlen = 7;
+    int good_st[7];
+
+    for (int i = 0; i < patlen; i++)
+    {
+        good_st[i] = patlen;
     }
 
-    return bad;
+    create_good_shift_tabel(good_st, pat, patlen);
+
+    for ( int i = 0; i < patlen; i++)
+    {
+        printf("%d ", good_st[i]);
+    }
 }
