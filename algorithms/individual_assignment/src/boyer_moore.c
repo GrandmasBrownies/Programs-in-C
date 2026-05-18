@@ -51,24 +51,20 @@ void create_good_shift_tabel(int *good_st, char *pat, int patlen)
 
     suffix(pat, suff, patlen);
     
-    for (int j = 0; j < patlen-1; j++)
+    for (int i = (patlen-1); i >= 0; i--)
     {
-        if (suff[j] > 0) {
-            good_st[patlen - 1 - suff[j]] = patlen - 1 - j;
-        }
-        else {
-            for (int k = patlen-1; k >= j; k--)
+        if (suff[i] == i + 1) { // Check for border case
+            for (int j = 0; j < patlen - 1 - i; j++)
             {
-                int l = j-1;
-                if (pat[l] == pat[k]) {
-                    while (l >= 0) {
-                        l--;
-                        k--;
-                        if ()
-                    }
+                if (good_st[j] == patlen) { // Good_st has not been assigned a value yet
+                    good_st[j] = patlen - 1 - i;
                 }
             }
         }
+    }
+    for (int i = 0; i < patlen - 1; i++)
+    {
+        good_st[patlen - 1 - suff[i]] = patlen - 1 - i;
     }
 }
 
