@@ -9,9 +9,6 @@
 
 int main()
 {
-/*     printf("Enter the size of the array:\n");
-    scanf("%d", &size); */
-    
     int choice_alg = 0;
     int choice_order = 0;
     unsigned long long int op[8] = {0}; // basic operation counter

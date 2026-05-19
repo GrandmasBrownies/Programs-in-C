@@ -1,10 +1,8 @@
 // 2026 Joel Tann
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "boyer_moore.h"
 
-/* int boyer_moore(char *text, char *pat) // add op counter
+int boyer_moore(char *text, char *pat, unsigned long long int *op) // add op counter
 {
     int textlen = strlen(text);
     int patlen = strlen(pat);
@@ -15,9 +13,9 @@
         good_st[i] = patlen;
     }
 
-    int bad_st[127];
+    int bad_char[127];
 
-    create_bad_shift_tabel(bad_st, pat, patlen);
+    create_bad_char_tabel(bad_char, pat, patlen);
     create_good_shift_tabel(good_st, pat, patlen);
 
     int i = patlen;
@@ -31,7 +29,9 @@
             if (j == 0) { // That pattern matches
                 return i+1;
             }
-    
+
+            op += 2; // 1 to check if we matched and 1 to check for char match. 1 + 1 = 2 comparisons
+
             if (text[i] == pat[j]) { // Char match. Reduce by 1 to check next char
                 j--;
                 i--;
@@ -40,17 +40,27 @@
                 break;
             }
         }
-        i = i + max(bad_st[text[i]], good_st[j]);
+        int bad_char_shift = max(1, j - bad_char[text[i+j]]);
+        i += max(bad_char_shift, good_st[j]);
     }
 
     free(good_st);
 
     return -1;
-} */
+}
 
-int brute_force(char *text, char *pat);
+void create_bad_char_tabel(int *bad_char, char *pat, int patlen)
+{
+    for (int i = 0; i < 128; i++)
+    {
+        bad_char[i] = - 1;
+    }
 
-void create_bad_shift_tabel(int *bad_st, char *pat, int patlen);
+    for (int i = 0; i < patlen; i++)
+    {
+        bad_char[pat[i]] = i;
+    }
+}
 
 void suffix(char *pat, int *suff, int patlen)
 {
@@ -70,15 +80,6 @@ void suffix(char *pat, int *suff, int patlen)
         }
         suff[i] = len;
     }
-}
-
-int max(int good, int bad)
-{
-    if (good > bad) {
-        return good;
-    }
-
-    return bad;
 }
 
 void create_good_shift_tabel(int *good_st, char *pat, int patlen)
@@ -112,22 +113,44 @@ void create_good_shift_tabel(int *good_st, char *pat, int patlen)
     free (suff);
 }
 
-
-int main()
+int max(int good, int bad)
 {
-    char pat[8] = "abcdabc";
-    int patlen = 7;
-    int good_st[7];
-
-    for (int i = 0; i < patlen; i++)
-    {
-        good_st[i] = patlen;
+    if (good > bad) {
+        return good;
     }
 
-    create_good_shift_tabel(good_st, pat, patlen);
+    return bad;
+}
 
-    for ( int i = 0; i < patlen; i++)
+int brute_force(char *text, char *pat, unsigned long long int *op)
+{
+    int patlen = strlen(pat);
+    int textlen = strlen(text);
+
+    int i = patlen;
+
+    while (i <= textlen)
     {
-        printf("%d ", good_st[i]);
+        int j = patlen;
+        int k = i;
+
+        while (1)
+        {
+            if (j == 0) {
+                return i+1;
+            }
+
+            op += 2; // 1 to check if we matched and 1 to check for char match. 1 + 1 = 2 comparisons
+
+            if (text[k] == pat[j]) {
+                k--;
+                j--;
+            }
+            else {
+                break;
+            }
+        }
+        i++;
     }
+    return -1;
 }
