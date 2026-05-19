@@ -4,4 +4,47 @@ DOUBLE CHECK!!: [1]“8th International Conference on Engineering of Complex Com
 
 changed from goto to while loop for better programing practice
 
-bad tabel: If char don't exist in pattern, shift patlen. Else shift to where char reoccurs in pattern???
+
+NOTES:
+
+* Let text size allways be same
+
+main
+{
+    Enter pattern size (3, 6, 9): (maybe remove?)
+
+    Enter pattern of that size:
+
+    Chose type of text:
+    Best: Characters in text that is not part of the pattern (Run 30 times)
+    Average: Random Characters (Run 30 times)
+    Worst: Similair Characters to pattern (Run 30 times)
+
+    Chose how many times to regenerate text to match pattern on
+
+    Chose where to find pattern:
+    Best: pattern being first word
+    Average: pattern in the middle
+    Worst: pattern not found
+
+}
+
+Type of text:
+Best: Characters in text that is not part of the pattern
+Average: Random Characters
+Worst: Similair Characters to pattern without finding word
+
+Pattern position:
+Best: pattern being first word
+Average: pattern in the middle
+Worst: pattern not found
+
+pattern size:
+3, 6, 9
+
+Best case good shift tabel is a pattern without any duplicate Characters
+
+Dependig on how you chose to use the Boyer Algorithm there can be a luck aspect to it aswell. If you want to find all the
+instances of your pattern, then it does not matter for the complexity if the pattern is found or not. If you however are satisfied
+as soon as the program find the word. Then that makes the average case completely random within the bounderies of worst and best case.
+For this implementation I have decided to have the 
