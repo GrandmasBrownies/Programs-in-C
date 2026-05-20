@@ -118,9 +118,37 @@ int main()
         printf("Could not find pattern in text\n");
     }
 
+    char *pattern_pos = malloc(position * sizeof(*pattern_pos)); // simply used to show in output_text.txt where pattern is found
+    for (int i = 0; i < position; i++)
+    {
+        pattern_pos[i] = ' ';
+    }
+
+    char *arrow_pos = malloc(patlen * sizeof(*arrow_pos)); // simply used to show in output_text.txt where pattern is found
+    for (int i = 0; i < patlen; i++)
+    {
+        arrow_pos[i] = '^';
+    }
+
     FILE *pfile = NULL;
+
+    pfile = fopen("output_text.txt", "w");
+    if (!pfile) {
+        printf("Could not write to file\n");
+        fclose(pfile);
+    }
+    else if (choice_pattern == 3) { // pattern not in text. Another output_text.txt output is desired
+        fprintf(pfile, "Text:    %s\n", text);
+        fprintf(pfile, "Pattern: not in text\n");
+    }
+    else { // Pattern is in text. Shows where by writing to output_text.txt
+        fprintf(pfile, "Text:    %s\n", text);
+        fprintf(pfile, "         %s%s\n", pattern_pos, arrow_pos);
+        fprintf(pfile, "Pattern: %s%s\n", pattern_pos, pat);
+    }
+    fclose(pfile);
     
-    pfile = fopen("output.txt", "a");
+    pfile = fopen("output_values.txt", "a");
     if (!pfile) {
         printf("Could not write to file\n");
         fclose(pfile);
@@ -133,6 +161,7 @@ int main()
         fprintf(pfile, "Boyer-Moore:           %llu\n", op);
         fprintf(pfile, "Brute-Force:           %llu\n", op);
     }
+    fclose(pfile);
 
     return 0;
 }
