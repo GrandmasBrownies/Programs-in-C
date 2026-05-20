@@ -132,7 +132,6 @@ int main()
         fprintf(pfile, "--------------------------------\n");
         fprintf(pfile, "Boyer-Moore:           %llu\n", op);
         fprintf(pfile, "Brute-Force:           %llu\n", op);
-        fclose(pfile);
     }
 
     return 0;
