@@ -2,11 +2,8 @@
 
 #include "boyer_moore.h"
 
-int boyer_moore(char *text, char *pat, unsigned long long int *op) // add op counter
+int boyer_moore(char *text, char *pat, int textlen, int patlen, unsigned long long int *op) // add op counter
 {
-    int textlen = strlen(text);
-    int patlen = strlen(pat);
-
     int *good_st = malloc(patlen * sizeof(*good_st));
     for (int i = 0; i < patlen; i++)
     {
@@ -22,7 +19,7 @@ int boyer_moore(char *text, char *pat, unsigned long long int *op) // add op cou
 
     while (i <= textlen)
     {
-        int j = patlen;
+        int j = patlen - 1;
 
         while (1) // Loops until we either get a missmatch or the enitire pattern matches
         {

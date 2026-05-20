@@ -1,3 +1,4 @@
+// 2026 Joel Tann
 #ifndef BOYER_MOORE_H
 #define BOYER_MOORE_H
 
