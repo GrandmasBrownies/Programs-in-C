@@ -44,7 +44,14 @@ pattern size:
 
 Best case good shift tabel is a pattern without any duplicate Characters
 
-Dependig on how you chose to use the Boyer Algorithm there can be a luck aspect to it aswell. If you want to find all the
-instances of your pattern, then it does not matter for the complexity if the pattern is found or not. If you however are satisfied
-as soon as the program find the word. Then that makes the average case completely random within the bounderies of worst and best case.
-For this implementation I have decided to have the 
+Boyer-Moore complexity analasys
+
+The Boyer-Moore algorithm was tested inside Visual Studio Code by counting every comparison made, which is shown by the OP counter (comparison counter).
+In this implementation I choce to end the algorithm if it found the pattern and that is why in the user-interface you can choce where that pattern should be in the text.
+If this would not be implemented and the pattern was placed randomly in the text, then the results of the op counter would be just as random and alot harder to compare.
+It is worth mentioning that if the algorithm was made to count to the end of the text instead to find all (if any) pattern occurences.
+The program would have the same OP count if the pattern was placed at the same spot but for the algorithm that stops when it finds the pattern.
+That is why I have chosen to not compare text lengths for my implementation and instead where the pattern is placed in the text.
+
+The strengths and waknesses of this algorithm was alot more complex then I origonally thought. 
+But I eventually came to the conclusion that the best way to show that is to 
