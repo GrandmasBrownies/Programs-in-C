@@ -1,6 +1,6 @@
 // 2026 Joel Tann
 
-#include "include/input_gen.h"
+#include "input_gen.h"
 
 void char_not_in_pat(int textlen, int patlen, char *text, char *pat)
 {
@@ -19,6 +19,7 @@ void char_not_in_pat(int textlen, int patlen, char *text, char *pat)
         }
         text[i] = c;
     }
+    text[textlen] = '\0';
 }
 
 void random(int textlen, int patlen, char *text, char *pat)
@@ -31,16 +32,11 @@ void random(int textlen, int patlen, char *text, char *pat)
 
         text[i] = c;
         if (c == pat[patlen-1]) { // To make sure pattern is not found in generated text
+            int j = patlen - 2;
+            int k = i - 1;
+
             while (1)
             {
-                int j = patlen - 1;
-                int k = i;
-
-                if (j == 0) {
-                    i--; // Go back
-                    break;
-                }
-
                 if (k >= 0 && pat[j] == text[k]) {
                     j--;
                     k--;
@@ -48,9 +44,15 @@ void random(int textlen, int patlen, char *text, char *pat)
                 else { // patern was not found in text. Move on
                     break;
                 }
+                
+                if (j < 0) {
+                    i--; // Go back
+                    break;
+                }
             }
         }
     }
+    text[textlen] = '\0';
 }
 
 void char_in_pat(int textlen, int patlen, char *text, char *pat)
@@ -59,22 +61,15 @@ void char_in_pat(int textlen, int patlen, char *text, char *pat)
 
     for (int i = 0; i < textlen; i++)
     {
-        int something = rand() % patlen;
-
-        char c = pat[something];
+        char c = pat[rand() % patlen];
 
         text[i] = c;
         if (c == pat[patlen-1]) { // To make sure pattern is not found in generated text
+            int j = patlen - 2;
+            int k = i - 1;
+
             while (1)
             {
-                int j = patlen - 2;
-                int k = i - 1;
-
-                if (j == 0) {
-                    i--; // Go back
-                    break;
-                }
-
                 if (k >= 0 && pat[j] == text[k]) {
                     j--;
                     k--;
@@ -82,7 +77,13 @@ void char_in_pat(int textlen, int patlen, char *text, char *pat)
                 else { // patern was not found in text. Move on
                     break;
                 }
+                
+                if (j < 0) {
+                    i--; // Go back
+                    break;
+                }
             }
         }
     }
+    text[textlen] = '\0';
 }

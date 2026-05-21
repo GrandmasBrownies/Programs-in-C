@@ -2,7 +2,7 @@
 
 #include "boyer_moore.h"
 
-int boyer_moore(char *text, char *pat, int textlen, int patlen, unsigned long long int *op) // add op counter
+int boyer_moore(char *text, char *pat, int textlen, int patlen, unsigned int *op) // add op counter
 {
     int *good_st = malloc(patlen * sizeof(*good_st));
     for (int i = 0; i < patlen; i++)
@@ -10,34 +10,35 @@ int boyer_moore(char *text, char *pat, int textlen, int patlen, unsigned long lo
         good_st[i] = patlen;
     }
 
-    int bad_char[127];
+    int bad_char[128];
 
     create_bad_char_tabel(bad_char, pat, patlen);
     create_good_shift_tabel(good_st, pat, patlen);
 
-    int i = patlen;
+    int i = patlen - 1;
 
-    while (i <= textlen)
+    while (i < textlen)
     {
         int j = patlen - 1;
+        int k = i;
 
         while (1) // Loops until we either get a missmatch or the enitire pattern matches
         {
-            if (j == 0) { // That pattern matches
-                return i+1;
+            if (j < 0) { // That pattern matches
+                free(good_st);
+                return k + 1;
             }
 
-            op += 2; // 1 to check if we matched and 1 to check for char match. 1 + 1 = 2 comparisons
-
-            if (text[i] == pat[j]) { // Char match. Reduce by 1 to check next char
+            (*op)++;
+            if (text[k] == pat[j]) { // Char match. Reduce by 1 to check next char
                 j--;
-                i--;
+                k--;
             } 
             else { // Char did not match
                 break;
             }
         }
-        int bad_char_shift = max(1, j - bad_char[text[i+j]]);
+        int bad_char_shift = max(1, j - bad_char[(unsigned char)text[k]]);
         i += max(bad_char_shift, good_st[j]);
     }
 
@@ -100,12 +101,6 @@ void create_good_shift_tabel(int *good_st, char *pat, int patlen)
     {
         good_st[patlen - 1 - suff[i]] = patlen - 1 - i;
     }
-    printf("suff: ");
-    for (int i = 0; i < patlen; i++)
-    {
-        printf("%d ", suff[i]);
-    }
-    printf("\n");
 
     free (suff);
 }
@@ -119,26 +114,22 @@ int max(int good, int bad)
     return bad;
 }
 
-int brute_force(char *text, char *pat, unsigned long long int *op)
+int brute_force(char *text, char *pat, int textlen, int patlen, unsigned int *op)
 {
-    int patlen = strlen(pat);
-    int textlen = strlen(text);
+    int i = patlen - 1;
 
-    int i = patlen;
-
-    while (i <= textlen)
+    while (i < textlen)
     {
-        int j = patlen;
+        int j = patlen - 1;
         int k = i;
 
         while (1)
         {
-            if (j == 0) {
-                return i+1;
+            if (j < 0) {
+                return i + 1;
             }
 
-            op += 2; // 1 to check if we matched and 1 to check for char match. 1 + 1 = 2 comparisons
-
+            (*op)++;
             if (text[k] == pat[j]) {
                 k--;
                 j--;

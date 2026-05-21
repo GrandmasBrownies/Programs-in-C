@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int boyer_moore(char *text, char *pat);
+int boyer_moore(char *text, char *pat, int textlen, int patlen, unsigned int *op);
 
 void create_bad_char_tabel(int *bad_char, char *pat, int patlen);
 
@@ -16,6 +16,6 @@ void create_good_shift_tabel(int *good_st, char *pat, int patlen);
 
 int max(int good, int bad);
 
-int brute_force(char *text, char *pat);
+int brute_force(char *text, char *pat, int textlen, int patlen, unsigned int *op);
 
 #endif // BOYER_MOORE_H
