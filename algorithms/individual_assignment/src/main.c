@@ -4,7 +4,7 @@
 #include "input_gen.h"
 
 #define MAX_PATTERN_LENGTH 101
-#define MAX_TEXT_LENGTH 256
+#define MAX_TEXT_LENGTH 1024
 
 int main()
 {
@@ -16,6 +16,7 @@ int main()
     
     char text_type[30];
     char pat_pos[30];
+    int p = 0; // for own choice of where in text pattern should be found
 
     char text[MAX_TEXT_LENGTH];
     char pat[MAX_PATTERN_LENGTH];
@@ -73,22 +74,27 @@ int main()
         
         if (runs == 0)
         {
-            printf("How many runs should this pattern on this text type perform? (1-30):\n");
-            scanf("%d", &max_runs);
+            max_runs = 60; // remove later?
+/*             printf("How many runs should this pattern on this text type perform? (1-30):\n");
+            scanf("%d", &max_runs); */
         }
-        
+                
         if (choice_pattern == 0)
         {
             printf("Chose where to find pattern:\n");
             printf("(1) pattern being first word\n");
             printf("(2) pattern in the middle\n");
             printf("(3) pattern not in text\n");
+            printf("(4) manually specified\n");
             
             scanf("%d", &choice_pattern);
+
+            if (choice_pattern == 4) {
+                printf("Enter the index where the pattern should be found:\n");
+                scanf("%d", &p);
+            }
         }
         
-        int middle = textlen / 2; // Used for upcoming case 2
-    
         valid = 0; // false for now
     
         while (!valid) // Run while loop is false to catch wrong input
@@ -109,7 +115,7 @@ int main()
                 case 2:
                     for (int i = 0; i < patlen; i++)
                     {
-                        text[middle + i] = pat[i];
+                        text[(textlen / 2) + i] = pat[i];
                     }
     
                     strcpy(pat_pos, "Middle");
@@ -120,7 +126,16 @@ int main()
                     strcpy(pat_pos, "Not in text");
                     valid = 1; // Becomes true
                     break;
-    
+                case 4:
+                    for (int i = 0; i < patlen; i++)
+                    {
+                        text[p+i] = pat[i];
+                    }
+
+                    strcpy(pat_pos, "Own Choice");
+                    valid = 1; // Becomes true
+                    break;
+
                 default:
                     printf("Invalid choice. Please try agian\n");
                 }
@@ -136,6 +151,7 @@ int main()
     op_boyer /= runs;
     op_force /= runs;
     
+    printf("Text:\n");
     printf("%s\n", text);
 
     if (position >= 0) {

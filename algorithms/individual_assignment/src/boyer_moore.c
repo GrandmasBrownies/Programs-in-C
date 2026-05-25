@@ -2,7 +2,7 @@
 
 #include "boyer_moore.h"
 
-int boyer_moore(char *text, char *pat, int textlen, int patlen, unsigned int *op) // add op counter
+int boyer_moore(char *text, char *pat, int textlen, int patlen, unsigned int *op)
 {
     int *good_st = malloc(patlen * sizeof(*good_st));
     for (int i = 0; i < patlen; i++)
@@ -38,7 +38,7 @@ int boyer_moore(char *text, char *pat, int textlen, int patlen, unsigned int *op
                 break;
             }
         }
-        int bad_char_shift = max(1, j - bad_char[(unsigned char)text[k]]);
+        int bad_char_shift = max(1, j - bad_char[text[k]]);
         i += max(bad_char_shift, good_st[j]);
     }
 

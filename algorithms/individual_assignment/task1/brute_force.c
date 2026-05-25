@@ -1,21 +1,18 @@
 // 2026 Joel Tann
 
-int brute_force(char *text, char *pat)
+int brute_force(char *text, char *pat, int textlen, int patlen)
 {
-    int patlen = strlen(pat);
-    int textlen = strlen(text);
+    int i = patlen - 1;
 
-    int i = patlen;
-
-    while (i <= textlen)
+    while (i < textlen)
     {
-        int j = patlen;
+        int j = patlen - 1;
         int k = i;
 
         while (1)
         {
-            if (j == 0) {
-                return i+1;
+            if (j < 0) {
+                return i + 1;
             }
 
             if (text[k] == pat[j]) {

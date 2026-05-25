@@ -1,0 +1,82 @@
+Bad Pattern: aab (Pattern length - 1 * a + b)
+
+Type of text:      Patern characters in text
+Pattern position:  Not in text
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            1020
+Brute-Force:            1026
+
+
+Type of text:      Patern characters in text
+Pattern position:  Not in text
+Pattern length:    6
+--------------------------------
+Boyer-Moore:            1015
+Brute-Force:            1023
+
+
+Type of text:      Patern characters in text
+Pattern position:  Not in text
+Pattern length:    9
+--------------------------------
+Boyer-Moore:            1009
+Brute-Force:            1035
+
+
+Type of text:      Patern characters in text
+Pattern position:  Not in text
+Pattern length:    12
+--------------------------------
+Boyer-Moore:            1012
+Brute-Force:            1012
+
+
+Type of text:      Patern characters in text
+Pattern position:  Not in text
+Pattern length:    15
+--------------------------------
+Boyer-Moore:            1009
+Brute-Force:            1009
+
+
+Type of text:      Patern characters in text
+Pattern position:  Middle
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            514
+Brute-Force:            514
+
+
+Type of text:      Patern characters in text
+Pattern position:  Middle
+Pattern length:    6
+--------------------------------
+Boyer-Moore:            517
+Brute-Force:            517
+
+
+Type of text:      Patern characters in text
+Pattern position:  Middle
+Pattern length:    9
+--------------------------------
+Boyer-Moore:            520
+Brute-Force:            520
+
+
+Type of text:      Patern characters in text
+Pattern position:  Middle
+Pattern length:    12
+--------------------------------
+Boyer-Moore:            517
+Brute-Force:            538
+
+
+Type of text:      Patern characters in text
+Pattern position:  Middle
+Pattern length:    15
+--------------------------------
+Boyer-Moore:            526
+Brute-Force:            526
+
+
