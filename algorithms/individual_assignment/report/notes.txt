@@ -55,3 +55,8 @@ That is why I have chosen to not compare text lengths for my implementation and 
 
 The strengths and waknesses of this algorithm was alot more complex then I origonally thought. 
 But I eventually came to the conclusion that the best way to show that is to 
+
+
+Introduction:
+
+add other string searching algorithms
