@@ -9,10 +9,10 @@
 int main()
 {
     int runs = 0; // To count how many runs the program performs
-    int max_runs = 0; // Max amount of runs (user defines later)
+    int max_runs = 60; // amount of runs the program should preform 
     
-    unsigned int op_boyer = 0;
-    unsigned int op_force = 0;
+    unsigned int op_boyer = 0; // OP count for the Boyer-Moore algorithm
+    unsigned int op_force = 0;// OP count for the Brute force algorithm
     
     char text_type[30];
     char pat_pos[30];
@@ -39,7 +39,7 @@ int main()
             printf("Type of text:\n");
             printf("(1) Text contains characters that is not part of the pattern\n");
             printf("(2) Random Characters\n");
-            printf("(3) Text contains characters that is part of the patter\n");
+            printf("(3) Text contains characters that is part of the pattern\n");
 
             scanf("%d", &choice_text);
         }
@@ -53,17 +53,17 @@ int main()
                 {
                 case 1:
                     char_not_in_pat(textlen, patlen, text, pat);
-                    strcpy(text_type, "Patern characters not in text");
+                    strcpy(text_type, "Non patern characters");
                     valid = 1; // Becomes true
                     break;
                 case 2:
                     random(textlen, patlen, text, pat);
-                    strcpy(text_type, "Random characters in text");
+                    strcpy(text_type, "Random characters");
                     valid = 1; // Becomes true
                     break;
                 case 3:
                     char_in_pat(textlen, patlen, text, pat);
-                    strcpy(text_type, "Patern characters in text");
+                    strcpy(text_type, "Patern characters");
                     valid = 1; // Becomes true
                     break;
                 default:
@@ -72,13 +72,7 @@ int main()
             }
         }
         
-        if (runs == 0)
-        {
-            max_runs = 60; // remove later?
-/*             printf("How many runs should this pattern on this text type perform? (1-30):\n");
-            scanf("%d", &max_runs); */
-        }
-                
+   
         if (choice_pattern == 0)
         {
             printf("Chose where to find pattern:\n");

@@ -72,3 +72,227 @@ Brute-Force:            134
 
 Continue for 6 and 9
 
+Type of text:      Patern characters in text
+Pattern position:  Not in text
+Pattern length:    6
+--------------------------------
+Boyer-Moore:            1017
+Brute-Force:            1018
+
+
+Type of text:      Random characters in text
+Pattern position:  Not in text
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            348
+Brute-Force:            1031
+
+
+Type of text:      Random characters in text
+Pattern position:  Not in text
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            348
+Brute-Force:            1034
+
+
+Type of text:      Random characters in text
+Pattern position:  Not in text
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            346
+Brute-Force:            1032
+
+
+Type of text:      Patern characters in text
+Pattern position:  Not in text
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            751
+Brute-Force:            1394
+
+
+Type of text:      Patern characters in text
+Pattern position:  Not in text
+Pattern length:    12
+--------------------------------
+Boyer-Moore:            170
+Brute-Force:            1079
+
+
+Type of text:      Random characters in text
+Pattern position:  Not in text
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            348
+Brute-Force:            1030
+
+
+Type of text:      Random characters in text
+Pattern position:  Not in text
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            348
+Brute-Force:            1030
+
+
+Type of text:      Random characters in text
+Pattern position:  Not in text
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            341
+Brute-Force:            1021
+
+
+Type of text:      Random characters in text
+Pattern position:  Not in text
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            369
+Brute-Force:            1053
+
+
+Type of text:      Random characters
+Pattern position:  Not in text
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            365
+Brute-Force:            1049
+
+
+Type of text:      Random characters
+Pattern position:  Not in text
+Pattern length:    6
+--------------------------------
+Boyer-Moore:            187
+Brute-Force:            1063
+
+
+Type of text:      Random characters
+Pattern position:  Not in text
+Pattern length:    6
+--------------------------------
+Boyer-Moore:            176
+Brute-Force:            1026
+
+
+Type of text:      Patern characters
+Pattern position:  Not in text
+Pattern length:    5
+--------------------------------
+Boyer-Moore:            432
+Brute-Force:            1238
+
+
+Type of text:      Patern characters
+Pattern position:  Not in text
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            1204
+Brute-Force:            1772
+
+
+Type of text:      Patern characters
+Pattern position:  Not in text
+Pattern length:    5
+--------------------------------
+Boyer-Moore:            1019
+Brute-Force:            1019
+
+
+Type of text:      Patern characters
+Pattern position:  Not in text
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            756
+Brute-Force:            1413
+
+
+Type of text:      Patern characters
+Pattern position:  Not in text
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            750
+Brute-Force:            1421
+
+
+Type of text:      Patern characters
+Pattern position:  Not in text
+Pattern length:    6
+--------------------------------
+Boyer-Moore:            354
+Brute-Force:            1222
+
+
+Type of text:      Patern characters
+Pattern position:  Not in text
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            1021
+Brute-Force:            1022
+
+
+Type of text:      Patern characters
+Pattern position:  Not in text
+Pattern length:    2
+--------------------------------
+Boyer-Moore:            1022
+Brute-Force:            1022
+
+
+Type of text:      Patern characters
+Pattern position:  Not in text
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            1021
+Brute-Force:            1021
+
+
+Type of text:      Patern characters
+Pattern position:  Not in text
+Pattern length:    4
+--------------------------------
+Boyer-Moore:            1020
+Brute-Force:            1020
+
+
+Type of text:      Patern characters
+Pattern position:  Not in text
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            739
+Brute-Force:            1409
+
+
+Type of text:      Patern characters
+Pattern position:  Not in text
+Pattern length:    4
+--------------------------------
+Boyer-Moore:            557
+Brute-Force:            1336
+
+
+Type of text:      Patern characters
+Pattern position:  Not in text
+Pattern length:    5
+--------------------------------
+Boyer-Moore:            447
+Brute-Force:            1283
+
+
+Type of text:      Patern characters
+Pattern position:  Not in text
+Pattern length:    5
+--------------------------------
+Boyer-Moore:            893
+Brute-Force:            1922
+
+
+Type of text:      Patern characters
+Pattern position:  Not in text
+Pattern length:    5
+--------------------------------
+Boyer-Moore:            722
+Brute-Force:            1754
+
+
