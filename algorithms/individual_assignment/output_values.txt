@@ -69,8 +69,124 @@ Pattern length:    6
 Boyer-Moore:            28
 Brute-Force:            134
 
+Type of text:      Random characters in text
+Pattern position:  Own Choice
+Pattern length:    6
+--------------------------------
+Boyer-Moore:            50
+Brute-Force:            268
 
-Continue for 6 and 9
+
+Type of text:      Random characters in text
+Pattern position:  Middle
+Pattern length:    6
+--------------------------------
+Boyer-Moore:            94
+Brute-Force:            523
+
+Type of text:      Random characters in text
+Pattern position:  Begining
+Pattern length:    9
+--------------------------------
+Boyer-Moore:            9
+Brute-Force:            9
+
+
+Type of text:      Random characters in text
+Pattern position:  Own Choice
+Pattern length:    9
+--------------------------------
+Boyer-Moore:            13
+Brute-Force:            41
+
+
+Type of text:      Random characters in text
+Pattern position:  Own Choice
+Pattern length:    9
+--------------------------------
+Boyer-Moore:            17
+Brute-Force:            73
+
+
+Type of text:      Random characters in text
+Pattern position:  Own Choice
+Pattern length:    9
+--------------------------------
+Boyer-Moore:            24
+Brute-Force:            138
+
+
+Type of text:      Random characters in text
+Pattern position:  Own Choice
+Pattern length:    9
+--------------------------------
+Boyer-Moore:            42
+Brute-Force:            268
+
+
+Type of text:      Random characters in text
+Pattern position:  Middle
+Pattern length:    9
+--------------------------------
+Boyer-Moore:            68
+Brute-Force:            522
+
+
+Type of text:      Random characters in text
+Pattern position:  Begining
+Pattern length:    12
+--------------------------------
+Boyer-Moore:            12
+Brute-Force:            12
+
+
+Type of text:      Random characters in text
+Pattern position:  Own Choice
+Pattern length:    12
+--------------------------------
+Boyer-Moore:            15
+Brute-Force:            44
+
+
+Type of text:      Random characters in text
+Pattern position:  Own Choice
+Pattern length:    12
+--------------------------------
+Boyer-Moore:            18
+Brute-Force:            77
+
+
+Type of text:      Random characters in text
+Pattern position:  Own Choice
+Pattern length:    12
+--------------------------------
+Boyer-Moore:            25
+Brute-Force:            143
+
+
+Type of text:      Random characters in text
+Pattern position:  Own Choice
+Pattern length:    12
+--------------------------------
+Boyer-Moore:            34
+Brute-Force:            269
+
+
+Type of text:      Random characters in text
+Pattern position:  Middle
+Pattern length:    12
+--------------------------------
+Boyer-Moore:            58
+Brute-Force:            528
+
+
+Type of text:      Random characters in text
+Pattern position:  Middle
+Pattern length:    3
+--------------------------------
+Boyer-Moore:            175
+Brute-Force:            517
+
 
 Type of text:      Patern characters in text
 Pattern position:  Not in text
